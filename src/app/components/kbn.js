@@ -32,18 +32,27 @@ function($, _, moment) {
     // 9m
     case (interval <= 450000):
       return 300000;    // 5m
-    // 20m
-    case (interval <= 1200000):
+    // 12.5m
+    case (interval <= 750000):
       return 600000;    // 10m
+    // 22.5m
+    case (interval <= 1350000):
+      return 900000;    // 15m
     // 45m
     case (interval <= 2700000):
       return 1800000;   // 30m
-    // 2h
-    case (interval <= 7200000):
+    // 1.5h
+    case (interval <= 5400000):
       return 3600000;   // 1h
-    // 6h
-    case (interval <= 21600000):
+    // 2.5h
+    case (interval <= 9000000):
+      return 7200000;   // 2h
+    // 4.5h
+    case (interval <= 16200000):
       return 10800000;  // 3h
+    // 9h
+    case (interval <= 32400000):
+      return 21600000;  // 6h
     // 24h
     case (interval <= 86400000):
       return 43200000;  // 12h
