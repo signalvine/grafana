@@ -136,7 +136,7 @@ function($, _, moment) {
       }
     }
 
-    intervalMs = kbn.round_interval((range.to.valueOf() - range.from.valueOf()) / resolution);
+    intervalMs = kbn.round_interval(6 * (range.to.valueOf() - range.from.valueOf()) / resolution);
     if (lowLimitMs > intervalMs) {
       intervalMs = lowLimitMs;
     }
