@@ -29,18 +29,27 @@ function($, _, moment) {
     // 3m
     case (interval <= 180000):
       return 60000;     // 1m
+    // 6m
+    case (interval <= 360000):
+      return 120000;    // 2m
     // 9m
     case (interval <= 450000):
       return 300000;    // 5m
     // 20m
     case (interval <= 1200000):
       return 600000;    // 10m
+    // 32.5m
+    case (interval <= 1950000):
+      return 900000;    // 10m
     // 45m
     case (interval <= 2700000):
       return 1800000;   // 30m
     // 2h
     case (interval <= 7200000):
       return 3600000;   // 1h
+    // 4h
+    case (interval <= 14400000):
+      return 7200000;   // 1h
     // 6h
     case (interval <= 21600000):
       return 10800000;  // 3h
@@ -127,7 +136,7 @@ function($, _, moment) {
       }
     }
 
-    intervalMs = kbn.round_interval((range.to.valueOf() - range.from.valueOf()) / resolution);
+    intervalMs = kbn.round_interval(6 * (range.to.valueOf() - range.from.valueOf()) / resolution);
     if (lowLimitMs > intervalMs) {
       intervalMs = lowLimitMs;
     }
